@@ -107,6 +107,21 @@ npm run test:backend
 
 Sometimes, backend or frontend processes, with or without debugging, may get stuck without releasing the used ports, preventing other processes from running. It is recommended to close and restart VSC to close such processes.
 
+
+
+
+COSAS A TENER EN CUENTA:
+He hecho el examen anterior ese de Performances y si este examen también va a ser de crear un nuevo tipo, hay algunas cosas que me he enterado que está bien tenerlas en cuenta:
+
+- Hay que meter el nuevo tipo en el archivo "models.js" (ahí están todos los demás así que para ponerlo hay que seguir la plantilla y ya)
+- Posiblemente los tests requerirán que existan las propiedades "createdAt" y "updatedAt", aunque el enunciado no lo diga
+- En el nuevo tipo lo más normal es que no haya que implementar todas las funciones CRUD (lo normal es que solo haya que hacer create)
+- En los tests, 401/403/409 son códigos de errores de middleware, y 422 son de errores de validación
+- Lo de hasMany/belongsTo/belongsToMany de los modelos hay que hacerlo bien o el ordenador explota
+- Si vais a usar de plantilla los archivos que ya están hechos, atención a cuando los nombres estén en plural o singular (por ejemplo en el examen de performances, a veces hay que poner "Performances" y otras veces es "Performance", y si lo haces mal se joden algunas cosas)
+* Si hay que validar que una propiedad sea una fecha, el método "isDate()" funciona regular. "isISO8601()" va mejor (con escribir el principio ya saldrá como sugerencia automáticamente)
+- Prestarle atención a los imports, porque seguro que o en los archivos viejos o en los nuevos va a haber que importar cosas de los nuevos (los más comunes son los de "import {*nombres de los modelos*} from '../models/models.js'")
+
 ## Submission Procedure
 
 1. Delete the **node_modules** folders from backend and frontend and the **.expo** folder from the frontend.
